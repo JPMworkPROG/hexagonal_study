@@ -1,0 +1,22 @@
+{
+   "compilerOptions": {
+      "alwaysStrict": true,
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "module": "CommonJS",
+      "target": "ES5",
+      "lib": [
+         "ES5",
+         "ES6"
+      ],
+      "outDir": "dist",
+      "noEmitOnError": true,
+      "noImplicitAny": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true
+   },
+   "include": [
+      "src",
+      "test"
+   ]
+}
