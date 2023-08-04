@@ -1,3 +1,4 @@
+import ProductDTO from '../../../../domain/dto/product';
 import Product from '../../../../domain/entity/product';
 import IProductRepository from '../../../../domain/repository/interface/product'
 import { productModel } from '../model/product';
@@ -7,9 +8,11 @@ export default class ProductRepository implements IProductRepository {
       await productModel.create({id:entity.id, name: entity.name, price: entity.price, status: entity.status})
    }
    async fetch(id: string): Promise<Product> {
-      return await productModel.findById(id)
+      const response =  await productModel.findOne({id: id})
+      return ProductDTO.toDomain(response)
    }
    async fetchAll(): Promise<Product[]> {
-      return await productModel.find({})
+      const response = await productModel.find({})
+      return response.map(ProductDTO.toDomain) 
    }
 }
